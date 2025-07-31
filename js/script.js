@@ -16,6 +16,17 @@ if (mainColor !== null) {
   });
 }
 
+// Apply temporary default style if no color is stored
+if (!mainColor) {
+  let defaultColor = "#ffe206";
+  let defaultLanding = "1.jpg";
+  let defaultAbout = "6.png";
+
+  document.documentElement.style.setProperty('--main-color', defaultColor);
+  document.querySelector('.landing-page').style.backgroundImage = `url("imgs/${defaultLanding}")`;
+  document.querySelector('.about-img').src = `imgs/${defaultAbout}`;
+}
+
 // Toggle settings box
 document.querySelector(".toggle-setting .fa-gear").onclick = function () {
   this.classList.toggle("fa-spin");
